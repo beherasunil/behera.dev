@@ -1,0 +1,208 @@
+---
+import "../styles/global.css";
+import SocialLinks from "@/components/SocialLinks";
+import Navigation from "@/components/Navigation";
+import BackgroundBadges from "@/components/BackgroundBadges";
+
+const pageTitle = "Sunil Behera - Software Engineer";
+const pageDescription = "Sunil Behera - Software Engineer | Specializes in Systems Integration, Restful APIs, DevSecOps, and Cloud Solutions, UX Design and Development.";
+const canonicalURL = "https://behera.dev";
+const ogImageURL = "https://behera.dev/og-image.svg"; // Ensure this image exists or update path
+const twitterUser = "@beherasunil"; // Ensure this is the correct Twitter handle
+
+// It's good practice to define schemas in a way that's easy to manage and update.
+// Using constants for repeated values is good.
+// The dateModified should be dynamic.
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sunil Behera",
+  jobTitle: "Software Engineer",
+  description: pageDescription, // Re-using constant
+  url: canonicalURL, // Re-using constant
+  sameAs: [
+    "https://github.com/beherasunil",
+    "https://linkedin.com/in/beherasunil",
+    // Add other relevant professional profiles if any
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "s@behera.dev", // Make sure this is a valid contact email
+    contactType: "professional",
+  },
+  knowsAbout: [
+    "Java", "Spring Boot", "Systems Integration", "Restful APIs", "DevSecOps", 
+    "Cloud Solutions", "UX Design", "UX Development", "Full Stack Development", 
+    "Software Engineering", "Agile Methodologies", "Microservices", "CI/CD", 
+    "Containerization", "Kubernetes", "Docker", "Cloud Computing", "AWS", "Azure", 
+    "Google Cloud", "React", "TypeScript", "Node.js", "JavaScript", 
+    "Web Development", "Frontend Development", "Backend Development",
+    // Add or remove skills as necessary
+  ],
+  alumniOf: {
+    "@type": "Organization",
+    name: "National Institute of Science and Technology", // Verify accuracy
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Infosys", // Verify accuracy or update if needed
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: pageTitle, // Re-using constant
+  description: pageDescription, // Re-using constant
+  url: canonicalURL, // Re-using constant
+  author: {
+    "@type": "Person",
+    name: "Sunil Behera", // Consistent with personSchema
+  },
+  dateModified: new Date().toISOString().split('T')[0], // Dynamic date, correct
+  inLanguage: "en-US", // Specify language
+  // potentialAction: { // Optional: if you have a search functionality
+  //   "@type": "SearchAction",
+  //   "target": "https://behera.dev/search?q={search_term_string}",
+  //   "query-input": "required name=search_term_string"
+  // }
+};
+
+const keywords = [
+  "Sunil Behera", "Software Engineer", "Systems Integration", "Restful APIs", 
+  "DevSecOps", "Cloud Solutions", "UX Design", "UX Development", "Full Stack Developer",
+  "Java Developer", "Spring Boot Developer", "Portfolio", "Tech Portfolio",
+  // Add more relevant keywords
+].join(", ");
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywords} /> 
+    <meta name="author" content="Sunil Behera" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="Sunil Behera Portfolio" /> {/* More specific site name */}
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+    <meta property="twitter:image" content={ogImageURL} />
+    <meta property="twitter:creator" content={twitterUser} />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#000000" /> {/* Match with your dark theme */}
+    <meta name="color-scheme" content="dark" />
+    <link rel="sitemap" href="/sitemap-index.xml" /> {/* Corrected sitemap path if using default astro sitemap */}
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://github.com" />
+    <link rel="preconnect" href="https://linkedin.com" />
+    {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> if using Google Fonts */}
+    {/* <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> if using Google Fonts */}
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://linkedin.com" />
+    {/* <link rel="dns-prefetch" href="https://fonts.googleapis.com" /> if using Google Fonts */}
+
+
+    <!-- Resource hints -->
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
+    {/* Preload key fonts or scripts if necessary */}
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+    <!-- Set dark theme as default -->
+    <script is:inline>
+        (function() {
+            // Always use dark theme
+            document.documentElement.classList.add("dark");
+            // Optional: remove if you don't want to store preference or have a toggle
+            // localStorage.setItem('theme', 'dark'); 
+        })();
+    </script>
+</head>
+
+<body class="min-h-screen bg-background text-foreground">
+    <BackgroundBadges client:load />
+    <!-- Navigation -->
+    <header>
+        <nav
+            class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+            role="navigation"
+            aria-label="Main navigation"
+        >
+            <div class="container flex h-14 items-center justify-end">
+                <Navigation client:load />
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main
+        class="container mx-auto px-6 max-w-4xl flex items-center justify-center min-h-[calc(100vh-3.5rem)] relative z-10" 
+        role="main"
+    >
+        <section class="space-y-8">
+            <!-- Name and Social Icons Row -->
+            <div
+                class="flex flex-col items-center text-center sm:flex-row sm:justify-between sm:items-center sm:text-left gap-6 sm:gap-4"
+            >
+                <!-- Left - Name -->
+                <div class="space-y-1">
+                    <h1
+                        class="text-2xl md:text-3xl font-medium tracking-wide"
+                    >
+                        Sunil <span class="text-primary">Behera</span>
+                    </h1>
+                    <p class="text-sm text-muted-foreground">
+                        Software Engineer
+                    </p>
+                </div>
+
+                <!-- Social Icons - Below name on mobile, right side on desktop -->
+                <aside
+                    class="flex-shrink-0 order-last sm:order-none"
+                    aria-label="Social media links"
+                >
+                    <SocialLinks client:load />
+                </aside>
+            </div>
+
+            <!-- About Section -->
+            <section
+                class="space-y-4 max-w-2xl text-center sm:text-left mx-auto sm:mx-0"
+                aria-label="About"
+            >
+                <p class="text-muted-foreground leading-relaxed">
+                    I'm a passionate software engineer building, fixing and maintaining multifaceted applications by leveraging cloud technologies and Gen AI.
+                </p>
+                <p class="text-muted-foreground leading-relaxed">
+                    Specializing in Systems Integration, Restful APIs, DevSecOps, and Cloud Solutions, UX Design and Development.
+                </p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

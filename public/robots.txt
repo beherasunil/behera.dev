@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://behera.dev/sitemap.xml
+
+# Block access to certain files
+Disallow: /_astro/
+Disallow: /api/
+
+# Allow important pages
+Allow: /resume.pdf
+Allow: /favicon.svg
